@@ -26,7 +26,7 @@ class CreateOrdersTable extends Migration
             $table->increments('id');
             $table->string('status', 45)->nullable();
             $table->decimal('amount', 13, 2)->nullable();
-            $table->string('reference_no', 45)->nullable();
+            $table->uuid('reference_no')->nullable();
             $table->unsignedInteger('client_id');
 
             $table->index(["client_id"], 'fk_orders_clients1_idx');

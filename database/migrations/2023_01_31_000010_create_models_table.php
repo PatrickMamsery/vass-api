@@ -25,6 +25,8 @@ class CreateModelsTable extends Migration
             $table->engine = 'InnoDB';
             $table->increments('id');
             $table->string('name', 45)->nullable();
+
+            $table->nullableTimestamps();
         });
     }
 

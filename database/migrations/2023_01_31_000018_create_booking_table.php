@@ -25,7 +25,8 @@ class CreateBookingTable extends Migration
             $table->engine = 'InnoDB';
             $table->increments('id');
             $table->string('date', 45)->nullable();
-            $table->timestamp('time')->nullable();
+            $table->string('from')->nullable();
+            $table->string('to')->nullable();
             $table->unsignedInteger('client_id');
             $table->unsignedInteger('address_id');
 

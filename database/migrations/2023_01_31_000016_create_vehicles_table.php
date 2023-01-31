@@ -5,13 +5,13 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateVehicleTable extends Migration
+class CreateVehiclesTable extends Migration
 {
     /**
      * Schema table name to migrate
      * @var string
      */
-    public $tableName = 'vehicle';
+    public $tableName = 'vehicles';
 
     /**
      * Run the migrations.
@@ -28,6 +28,7 @@ class CreateVehicleTable extends Migration
             $table->unsignedInteger('make_id');
             $table->unsignedInteger('model_id');
             $table->string('manufacture_year', 45)->nullable();
+            $table->nullableTimestamps();
 
             $table->index(["make_id"], 'fk_vehicle_make1_idx');
 

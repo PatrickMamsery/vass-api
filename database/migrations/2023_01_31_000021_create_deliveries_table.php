@@ -26,14 +26,29 @@ class CreateDeliveriesTable extends Migration
             $table->increments('id');
             $table->string('date', 45)->nullable();
             $table->unsignedInteger('product_id');
-            $table->timestamp('time')->nullable();
+            $table->unsignedInteger('address_id');
+            $table->unsignedInteger('client_id');
+            $table->enum('status', ['PENDING', 'DELIVERED', 'CANCELED'])->default('PENDING');
+            $table->string('time')->nullable();
 
             $table->index(["product_id"], 'fk_deliveries_products1_idx');
             $table->nullableTimestamps();
+            $table->index(["address_id"], 'fk_deliveries_addresses1_idx');
+            $table->index(["client_id"], 'fk_deliveries_clients1_idx');
 
 
             $table->foreign('product_id', 'fk_deliveries_products1_idx')
                 ->references('id')->on('products')
+                ->onDelete('no action')
+                ->onUpdate('no action');
+
+            $table->foreign('address_id', 'fk_deliveries_addresses1_idx')
+                ->references('id')->on('address')
+                ->onDelete('no action')
+                ->onUpdate('no action');
+
+            $table->foreign('client_id', 'fk_deliveries_clients1_idx')
+                ->references('id')->on('clients')
                 ->onDelete('no action')
                 ->onUpdate('no action');
         });

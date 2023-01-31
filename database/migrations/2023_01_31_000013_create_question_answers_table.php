@@ -26,6 +26,7 @@ class CreateQuestionAnswersTable extends Migration
             $table->increments('id');
             $table->string('content')->nullable();
             $table->unsignedInteger('question_id');
+            $table->nullableTimestamps();
 
             $table->index(["question_id"], 'fk_question_answers_questions1_idx');
 

@@ -24,8 +24,8 @@ class CreateRecordsTable extends Migration
         Schema::create($this->tableName, function (Blueprint $table) {
             $table->engine = 'InnoDB';
             $table->increments('id');
-            $table->string('type', 45)->nullable();
-            $table->string('content', 45)->nullable();
+            $table->enum('type', ['pending', 'accepted', 'completed', 'denied'])->nullable()->default('pending');
+            $table->string('content', 1000)->nullable();
             $table->timestamp('action_date')->nullable();
             $table->unsignedInteger('client_id');
 

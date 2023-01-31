@@ -28,6 +28,8 @@ class CreateClientsTable extends Migration
             $table->string('phone', 45)->nullable();
             $table->string('imei_number', 200)->nullable();
             $table->string('image', 100)->nullable();
+
+            $table->nullableTimestamps();
         });
     }
 

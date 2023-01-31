@@ -27,6 +27,8 @@ class CreateSubServicesTable extends Migration
             $table->string('title', 100)->nullable();
             $table->unsignedInteger('service_id');
 
+            $table->nullableTimestamps();
+
             $table->index(["service_id"], 'fk_sub_services_services_idx');
 
 

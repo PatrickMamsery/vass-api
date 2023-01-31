@@ -26,7 +26,9 @@ class CreateAddressTable extends Migration
             $table->increments('id');
             $table->string('location')->nullable();
             $table->enum('type', ['booking', 'delivery'])->nullable();
-            $table->string('additional_info', 100)->nullable();
+            $table->string('additional_info', 200)->nullable();
+
+            $table->nullableTimestamps();
         });
     }
 

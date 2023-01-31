@@ -24,11 +24,14 @@ class CreateServicesTable extends Migration
         Schema::create($this->tableName, function (Blueprint $table) {
             $table->engine = 'InnoDB';
             $table->increments('id');
+            $table->string('title', 100)->nullable();
             $table->string('image', 100)->nullable();
-            $table->string('description', 100)->nullable();
+            $table->string('description', 255)->nullable();
             $table->decimal('price', 13, 2)->nullable();
             $table->integer('discount')->nullable();
             $table->tinyInteger('status')->nullable();
+
+            $table->nullableTimeStamps();
         });
     }
 
