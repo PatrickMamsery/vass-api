@@ -44,7 +44,7 @@ class AuthenticatedSessionController extends Controller
      */
     public function destroy(Request $request)
     {
-        addLog("access","User  logged out the dashboard");
+        addLog("access", "User  logged out the dashboard");
 
         Auth::guard('web')->logout();
 

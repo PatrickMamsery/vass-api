@@ -11,12 +11,12 @@ if (! function_exists('referenceNumber')) {
 }
 
 if (! function_exists('addLog')) {
-    function addLog(String $action,String $description,String $platform="dashboard") {
+    function addLog(String $action, String $description, String $platform="dashboard") {
         return CustomLog::create([
-            "action"=> $action,
+            "action" => $action,
             "description" => $description,
-            "platform"=> $platform,
-            "user"=> Auth::user()->id
+            "platform" => $platform,
+            "user_id" => Auth::user()->id
         ]);
     }
 }
