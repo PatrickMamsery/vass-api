@@ -1,0 +1,19 @@
+.chart-wrapper{
+    .chart-title{
+    .title{
+        @include font-family(semi_bold);
+        font-size: 1.2rem;
+        color: color(dark);
+    }
+        small{
+            color: color(accent_dark);
+            font-size: 0.8rem;
+            @include font-family(light);
+        }
+    }
+    canvas{
+        width: 100% !important;
+        height: auto !important;
+    }
+
+}

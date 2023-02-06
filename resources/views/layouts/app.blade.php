@@ -4,39 +4,38 @@
         <div class="d-flex">
             <div class="navigation">
                 <div class="brand-logo">
-                    <h2>DADI's GARAGE</h2>
-                    <small>One Stop Garage</small>
+                    <img src="images/garage.png" width="100" alt="">
                 </div>
                 <ul class="nav nav-tabs" id="myTab" role="tablist">
                     <li class="nav-item">
                         <a href="/" class="nav-link active">
-                            <i class="fa-solid fa-chart-pie"></i> Dashboard
+                            Dashboard<i class="fa-solid fa-chart-pie"></i> 
                         </a>
                     </li>
                     <li class="nav-item">
                         <a href="/orders" class="nav-link">
-                            <i class="fa-solid fa-bag-shopping"></i> Orders
+                            Orders<i class="fa-solid fa-bag-shopping"></i>
                         </a>
                     </li>
                     <li class="nav-item">
                         <a href="/shop" class="nav-link">
-                            <i class="fa-solid fa-clipboard"></i> Shop
+                            Shop<i class="fa-solid fa-clipboard"></i>
                         </a>
                     </li>
                     <li class="nav-item">
                         <a href="/reports" class="nav-link">
-                            <i class="fa-solid fa-clipboard-list"></i> Reports
+                            Reports <i class="fa-solid fa-clipboard-list"></i>
                         </a>
                     </li>
                     <li class="nav-item">
                         <a href="/statistics" class="nav-link">
-                            <i class="fa-solid fa-chart-column"></i> Statistics
+                            Statistics<i class="fa-solid fa-chart-column"></i>
                         </a>
                     </li>
                     <div class="divider"></div>
                     <li class="nav-item management">
                         <a  class="nav-link " data-toggle="collapse" href="#collapseExample" role="button"
-                        aria-expanded="false" aria-controls="collapseExample"><i class="fa-solid fa-users-gear"></i> Management</a>
+                        aria-expanded="false" aria-controls="collapseExample"> Management<i class="fa-solid fa-users-gear"></i></a>
                         <div class="collapse mb-3" id="collapseExample">
                             <div class="card card-body">
                                 <a href="/administration" class="btn btn-custom inner-btn " >Administration <i class="fa-solid fa-user-gear"></i></a>
@@ -46,7 +45,7 @@
                         </div>
                     </li>
                     <li class="nav-item">
-                        <a href="/logs" class="nav-link"><i class="fa-solid fa-file-shield"></i> Logs</a>
+                        <a href="/logs" class="nav-link"> Logs<i class="fa-solid fa-file-shield"></i></a>
                     </li>
                 </ul>
                 <div class="avatar-wrapper dropup">
@@ -58,9 +57,10 @@
                         <div class="name">
                             Mr. {{ Auth::user()->name }}
                         </div>
-                        {{-- <div class="phone">
-                            {{ Auth::user()->phone }}
-                        </div> --}}
+                        <div class="phone">
+                            +255 756 808 808
+                            {{-- {{ Auth::user()->phone }} --}}
+                        </div>
                     </div>
                     <div class="dropdown-menu ml-1 mb-3">
                         <div class="logout">

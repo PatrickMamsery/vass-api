@@ -7,14 +7,14 @@
         min-height: 100vh;
         position: relative;
         background: color(dark);  /* fallback for old browsers */
-        background: -webkit-linear-gradient(to bottom,color(primary_light),color(primary), color(dark));  /* Chrome 10-25, Safari 5.1-6 */
-        background: linear-gradient(to bottom,color(primary_light),color(primary), color(dark)); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+        background: -webkit-linear-gradient(to bottom,color(light),color(primary),color(primary), color(dark));  /* Chrome 10-25, Safari 5.1-6 */
+        background: linear-gradient(to bottom,color(light),color(primary),color(primary), color(dark)); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
         width: 300px;
         padding: 1rem;
         .brand-logo{ 
             @include display-flex(center);
             flex-direction: column;
-            align-items: flex-start ;
+            align-items: center; ;
             @include font-family(semi_bold);
             color:white;
             margin-bottom: 4rem;
@@ -40,7 +40,11 @@
                 border-radius: 0.25rem;
                 color: white;
                 margin-bottom: 1rem;
-                @include font-family(light);
+                @include display-flex(space-between);
+                align-items: center;
+                @include font-family(base);
+                // line-height: 20px;
+                // font-size: 15px;
                 i{
                     float: right;
                 }
@@ -48,7 +52,7 @@
             .active{
                 a{
                     background-color: white;
-                    color: color(dark);
+                    color: color(secondary);
                 }
                 .collapse{
                     .card{

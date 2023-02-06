@@ -3,9 +3,15 @@
         "abstracts/mixins",
         "abstracts/variables";
 
+@import "components/calendar",
+        "components/chart";
+
 @import "base/base",
         "base/helpers",
         "base/typography";
+
+@import "shared/summary_tile",
+        "shared/order_tile";
 
 @import "pages/auth",
         "pages/main",

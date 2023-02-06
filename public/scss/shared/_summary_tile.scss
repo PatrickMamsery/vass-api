@@ -1,0 +1,67 @@
+.summary-tile-wrapper{
+    background-color: color(accent_light);
+    padding: 0.5rem;
+    @include font-family(semi_bold);
+    border-bottom: 0.3rem solid color(secondary);
+
+    .summary{
+        .title{
+            display: flex;
+            .icon{
+               
+                border-radius: 4px;
+                margin-right: 1rem;
+                width: 30px;
+                height: 30px;
+                text-align: center;
+                @include display-flex(center);
+                align-items: center;
+                background-color:color(accent);
+                i{
+                    color: color(accent_dark);
+                }
+            }
+            .text{
+                @include font-family(semi_bold);
+                font-size: 1.2rem;
+                color: color(dark);
+            }
+            
+        }
+        .stats{
+            display: flex;
+            align-items: baseline;
+            p{
+                margin-bottom: 0 !important;
+            }
+            .total{
+                @include font-family(semi_bold);
+                font-size: 1.4rem;
+                color: color(dark);
+                margin-right: 1rem;
+            }
+            .trend{
+                i{
+                    margin-left: 0.5rem;}
+            }
+            
+            .up{
+                color: color(success);
+                i{
+                    color: color(success);
+                }
+            }
+            .down{
+                color: color(fail);
+                i{
+                    color: color(fail);
+                }
+            }
+        }
+        .subtitle{
+            color: color(secondary);
+            font-size: 0.9rem;
+        }
+    }
+
+}

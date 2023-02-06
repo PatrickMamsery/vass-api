@@ -5,7 +5,9 @@
     color: color(dark);
     .header {
         h2 {
-            @include font-family(bold);
+            @include font-family(semi_bold);
+            color: color(dark);
+            font-size: 1.5rem;
         }
         p {
             color: grey;
@@ -13,7 +15,7 @@
     }
 
     .summary {
-        padding: 1rem 1rem;
+        padding: 0.5rem 0.5rem;
 
         .notifications {
             margin-bottom: 1rem;
@@ -70,6 +72,48 @@
         }
     }
 
+    .section-right{
+        .icon-border{
+            padding: 1px;
+            border-radius: 50%;
+            border: 1px solid color(light);
+            @include display-flex(center);
+            align-items: center;
+            width: 37px;
+            height: 37px;
+
+            .icon{
+            transition: 1s;
+
+                width: 100%;
+                height: 100%;
+                background-color: color(light);
+                border-radius: 50%;
+                // width: 35px;
+                // height: 35px;
+                @include display-flex(center);
+                align-items: center;
+                i {
+                    color: color(secondary);
+                }
+            }
+        }
+
+        .icon-border:hover{
+            border: 1px solid color(secondary);
+            .icon{
+            transition: 1s;
+                background-color: color(secondary);
+                i {
+                    color: color(light);
+                }
+            }
+
+        }
+        
+        
+    }
+
     .dark-bg{
         background: -webkit-linear-gradient(to bottom, color(primary),color(primary), color(dark)); /* Chrome 10-25, Safari 5.1-6 */
         background: linear-gradient(to bottom, color(primary),color(primary), color(dark));
@@ -78,4 +122,6 @@
         background: -webkit-linear-gradient(to bottom, color(primary_light), color(primary)); /* Chrome 10-25, Safari 5.1-6 */
         background: linear-gradient(to bottom, color(primary_light), color(primary));
     }
+
+  
 }

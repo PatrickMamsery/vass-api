@@ -1,40 +1,44 @@
 //colors
 $color:(
-    // primary:  #2B398E,
-    primary:  #141E61,
-    primary_light:  #1c2a86,
-    primary_200: #e1e3ef,
-    secondary: #a5a5a9,
-    // dark: #1b273d,
-    dark:  #0F044C,
-    light: #EEEEEE,
+    primary_dark:  #29090a,
+    primary:  #ed4048,
+    primary_light:  #ea686f,
+    primary_200: #ea686f,
+    secondary: #320f57,
+    secondary_light: #442c5e,
+    accent: #c5c5c5,
+    accent_light: #e9e9e9,
+    accent_dark: rgba(129, 129, 129, 0.8),
+    dark:  #10021f,
+    light: #ffffff,
+    // light: #ffffff,
     success:#3FAE28,
     fail:#F9322B,
     );
 
 //font-imports
 @font-face {
-    font-family: 'ubuntu-regular';
-    src: url('../../fonts/Ubuntu-Regular.ttf') format('truetype');
+    font-family: 'sf-pro-regular';
+    src: url('../../fonts/SFPRODISPLAYREGULAR.OTF') format('truetype');
 };
 @font-face {
-    font-family: 'ubuntu-light';
-    src: url('../../fonts/Ubuntu-Light.ttf') format('truetype');
+    font-family: 'sf-pro-light';
+    src: url('../../fonts/SFPRODISPLAYUTRALIGHT.OTF') format('truetype');
 };
 @font-face {
-    font-family: 'ubuntu-bold';
-    src: url('../../fonts/Ubuntu-Bold.ttf') format('truetype');
+    font-family: 'sf-pro-bold';
+    src: url('../../fonts/SFPRODISPLAYBOLD.OTF') format('truetype');
 };
 @font-face {
-    font-family: 'ubuntu-semi-bold';
-    src: url('../../fonts/Ubuntu-Medium.ttf') format('truetype');
+    font-family: 'sf-pro-semi-bold';
+    src: url('../../fonts/SFPRODISPLAYMEDIUM.OTF') format('truetype');
 };
 
 //font-family
 $font__family: (
-	base:'ubuntu-regular', // font-family(base)
-	light:'ubuntu-light', // font-family(base)
-	bold:'ubuntu-bold', // font-family(base)
-	semi_bold:'ubuntu-semi-bold', // font-family(base)
+	base:'sf-pro-regular', // font-family(base)
+	light:'sf-pro-light', // font-family(base)
+	bold:'sf-pro-bold', // font-family(base)
+	semi_bold:'sf-pro-semi-bold', // font-family(base)
 );
 

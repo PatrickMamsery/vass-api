@@ -49,10 +49,15 @@
 .section-right{
     border-radius: 0.5rem;
     width: 100%;
-    padding: 1rem;
+    padding: 0.5rem;
     background: color(dark);  /* fallback for old browsers */
     background: -webkit-linear-gradient(to bottom,color(primary_light),color(primary), color(dark));  /* Chrome 10-25, Safari 5.1-6 */
     background: linear-gradient(to bottom,color(primary_light),color(primary), color(dark));
+
+    .tile{
+        background:color(light);
+        border-radius: 0.5rem;
+    }
 }
 
 .centered {
