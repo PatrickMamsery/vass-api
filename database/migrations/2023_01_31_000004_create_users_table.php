@@ -25,21 +25,37 @@ class CreateUsersTable extends Migration
         Schema::create($this->tableName, function (Blueprint $table) {
             $table->engine = 'InnoDB';
             $table->bigIncrements('id');
-            $table->string('name');
-            $table->string('email');
+            $table->string('fname')->nullable();
+            $table->string('mname')->nullable();
+            $table->string('sname')->nullable();
+            $table->string('email')->nullable();
+            $table->string('phone')->nullable();
+            $table->string('address')->nullable();
+            $table->unsignedInteger('role_id')->default(1);
             $table->timestamp('email_verified_at')->nullable()->default(null);
             $table->string('password');
             $table->string('image')->nullable();
             $table->rememberToken();
+            $table->nullableTimestamps();
 
             $table->unique(["email"], 'users_email_unique');
-            $table->nullableTimestamps();
+            $table->unique(["phone"], 'phone_UNIQUE');
+
+            $table->index(["role_id"], 'fk_users_roles_idx');
+
+            $table->foreign('role_id', 'fk_users_roles_idx')
+                ->references('id')->on('roles')
+                ->onDelete('no action')
+                ->onUpdate('no action');
         });
 
         DB::table("users")->insert([
-            "name" => "Admin Admin",
+            "fname" => "Admin",
+            "mname" => "User",
+            "sname" => "Admin",
             "email" => "admin@admin.com",
-            "password" => bcrypt("Garage@2023"),
+            'phone' => '+254712345678',
+            "password" => bcrypt("Vass@2023"),
         ]);
     }
 
