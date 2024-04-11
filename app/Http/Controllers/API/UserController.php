@@ -8,6 +8,8 @@ use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\Role;
 use App\Models\VetDetails;
+use App\Models\VetCenter;
+use App\Models\CentreVet;
 
 use Illuminate\Support\Facades\Validator;
 
@@ -46,6 +48,8 @@ class UserController extends BaseController
 
         // return different responses based on the role
         if ($role === 'vet') {
+            // add eager loading for vet details and vet center to already loaded users
+            $users->load('vetDetails', 'vetCenter.center');
             return $this->sendResponse(VetResource::collection($users), 'RETRIEVE_MANY_SUCCESS');
         } elseif ($role === 'owner') {
             return $this->sendResponse(OwnerResource::collection($users), 'RETRIEVE_MANY_SUCCESS');
@@ -61,7 +65,9 @@ class UserController extends BaseController
     public function store(Request $request)
     {
         $validator = Validator::make($request->all(), [
-            'name' => 'required',
+            'fname' => 'required|min:3|max:255',
+            'mname' => 'nullable',
+            'sname' => 'required|min:3|max:255',
             'email' => 'required|email|unique:users',
             'phone' => 'nullable|unique:users',
             'image' => 'nullable|string',
@@ -71,7 +77,7 @@ class UserController extends BaseController
 
 
         if ($validator->fails()) {
-            return $this->sendError('VALIDATION_ERROR', $validator->errors());
+            return $this->sendError('VALIDATION_ERROR', $validator->errors(), 422);
         }
 
         // check if there's role attribute else create a new user with "owner" role
@@ -89,13 +95,15 @@ class UserController extends BaseController
             }
 
             // check if there is additional info in the payload
-            if ($role && !$request->has('additionalInfo')) {
+            if ($inputRole == 'vet' && !$request->has('additionalInfo')) {
                 return $this->sendError('MISSING_ADDITIONAL_INFO');
             } else {
                 // check if additional info data is correct for given role
                 $additionalInfoData = $request->additionalInfo;
 
                 if ($role->name == 'vet' && !array_key_exists('license_no', $additionalInfoData)) {
+                    return $this->sendError('ADDITIONAL_INFO_ROLE_MISMATCH');
+                } elseif ($role->name == 'vet' && !array_key_exists('vet_center', $additionalInfoData)) {
                     return $this->sendError('ADDITIONAL_INFO_ROLE_MISMATCH');
                 }
 
@@ -119,9 +127,31 @@ class UserController extends BaseController
                             $vetDetails = new VetDetails;
                             $vetDetails->user_id = $user->id;
                             $vetDetails->license_no = $additionalInfoData['license_no'];
-                            $vetDetails->license_expiry = $additionalInfoData['license_expiry'];
-                            $vetDetails->licence_copy = $additionalInfoData['licence_copy'];
+                            $vetDetails->license_expiry = $additionalInfoData['license_expiry'] ?? null;
+                            $vetDetails->licence_copy = $additionalInfoData['licence_copy'] ?? null;
                             $vetDetails->save();
+
+                            // create the relationship between the vet and the vet center but first check if the vet center exists
+                            // clean the vet center name input
+                            $inputVetCenter = ucwords(strtolower($additionalInfoData['vet_center']));
+
+                            $vetCenter = VetCenter::where('name', $inputVetCenter)->first();
+
+                            if (is_null($vetCenter)) {
+                                $vetCenter = new VetCenter;
+                                $vetCenter->name = $inputVetCenter;
+
+                                // check if location is provided, if not take the first word of the vet center name
+                                $vetCenter->location = $additionalInfoData['location'] ?? explode(' ', $inputVetCenter)[0];
+                                $vetCenter->save();
+                            }
+
+                            $centreVet = new CentreVet;
+                            $centreVet->vet_center_id = $vetCenter->id;
+                            $centreVet->vet_id = $user->id;
+                            $centreVet->save();
+
+                            // return $user;
                         }
                     });
 
