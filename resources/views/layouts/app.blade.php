@@ -4,34 +4,34 @@
         <div class="d-flex">
             <div class="navigation">
                 <div class="brand-logo">
-                    <img src="images/garage.png" width="100" alt="">
+                    <img src="images/vet_logo.png" width="100" alt="">
                 </div>
                 <ul class="nav nav-tabs" id="myTab" role="tablist">
                     <li class="nav-item">
                         <a href="/" class="nav-link active">
-                            Dashboard<i class="fa-solid fa-chart-pie"></i> 
+                            Dashboard<i class="fa-solid fa-chart-pie"></i>
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="/orders" class="nav-link">
-                            Orders<i class="fa-solid fa-bag-shopping"></i>
+                        <a href="/centres" class="nav-link">
+                            Centres<i class="fa-solid fa-building"></i>
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="/shop" class="nav-link">
-                            Shop<i class="fa-solid fa-clipboard"></i>
+                        <a href="/vets" class="nav-link">
+                            Vets<i class="fa-solid fa-user-md"></i>
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="/reports" class="nav-link">
-                            Reports <i class="fa-solid fa-clipboard-list"></i>
+                        <a href="/appointments" class="nav-link">
+                            Appointments <i class="fa-solid fa-clipboard-list"></i>
                         </a>
                     </li>
-                    <li class="nav-item">
+                    {{-- <li class="nav-item">
                         <a href="/statistics" class="nav-link">
                             Statistics<i class="fa-solid fa-chart-column"></i>
                         </a>
-                    </li>
+                    </li> --}}
                     <div class="divider"></div>
                     <li class="nav-item management">
                         <a  class="nav-link " data-toggle="collapse" href="#collapseExample" role="button"
@@ -39,8 +39,7 @@
                         <div class="collapse mb-3" id="collapseExample">
                             <div class="card card-body">
                                 <a href="/administration" class="btn btn-custom inner-btn " >Administration <i class="fa-solid fa-user-gear"></i></a>
-                                <a  href="/collectors" class="btn btn-custom inner-btn mt-3">Clients <i class="fa-solid fa-user-group"></i></a>
-                                <a href="/coverage" class="btn btn-custom inner-btn mt-3">Deliveries <i class="fa-solid fa-location"></i></a>
+                                {{-- <a  href="/collectors" class="btn btn-custom inner-btn mt-3">Clients <i class="fa-solid fa-user-group"></i></a> --}}
                             </div>
                         </div>
                     </li>
