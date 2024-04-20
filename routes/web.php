@@ -36,7 +36,7 @@ Route::middleware('auth')->group(function () {
 
     Route::get('/appointments', function () {
         return view('pages.under_construction');
-    })->name('centres');
+    })->name('appointments');
 
     Route::get('/logs', function () {
         return view('pages.logs');
