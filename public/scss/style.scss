@@ -4,6 +4,7 @@
         "abstracts/variables";
 
 @import "components/calendar",
+        "components/table",
         "components/chart";
 
 @import "base/base",
@@ -15,4 +16,6 @@
 
 @import "pages/auth",
         "pages/main",
-        "pages/dashboard";
+        "pages/dashboard",
+        "pages/centres",
+        "pages/logs";

@@ -14,7 +14,7 @@
                     </li>
                     <li class="nav-item">
                         <a href="/centres" class="nav-link">
-                            Centres<i class="fa-solid fa-building"></i>
+                            Vet Centres<i class="fa-solid fa-building"></i>
                         </a>
                     </li>
                     <li class="nav-item">

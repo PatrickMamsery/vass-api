@@ -1,0 +1,35 @@
+.logs-wrapper{
+    .body{
+        .filter{
+            width: 100%;
+            overflow-x: hidden !important;
+        }
+        .paper{
+            height: 700px;
+            overflow-y: scroll;
+            background-color: 	#eeeeee;
+            border: 0.05rem solid grey;
+            padding: 2rem 3rem;
+            .log{
+                border-bottom: 0.1rem dotted grey;
+                margin-bottom: 2rem;
+                font-size: 14px;
+
+                .mono{
+                    font-family:  monospace !important;
+                    font-weight: 200;
+                }
+            }
+            .delete{
+                color:color(fail);
+            }
+            .edit{
+                color: color(primary);
+            }
+            .other{
+                color: blue;
+            }
+            
+        }
+    }
+}

@@ -1,0 +1,55 @@
+.centres-wrapper {
+    .content {
+        margin-top: 1rem;
+        // font-size: 13px;
+        padding: 1rem 2rem;
+
+        .custom-table {
+            margin-bottom: 3rem;
+            .bold-font{
+                @include font-family(semi_bold);
+
+                ul {
+                    padding-left: 0 !important;
+                    list-style: none;
+                    color: color(dark);
+                    li {
+                        margin: .35rem 0;
+                        font-size: 14px;
+
+                        i {
+                            color: color(success);
+                            margin-right: .5rem;
+                        }
+                    }
+                }
+            }
+            .modal{
+                .modal-body{
+                    .row{
+                        margin-bottom: 1rem;
+                        border-bottom: 1px solid color(accent);
+                        color: color(dark);
+                        background-color: color(accent_light);
+                        .col{
+                            padding: 0.5rem;
+                        }
+                    }
+                }
+                .modal-footer{
+                    @include display-flex(space-evenly);
+                    button{
+                        padding: 0.5rem 2rem;
+                    }
+                }
+            }
+
+
+        }
+        .pages{
+            position: absolute;
+            bottom: 0 ;
+            right: 0;
+        }
+    }
+}

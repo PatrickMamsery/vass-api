@@ -21,6 +21,18 @@ Route::middleware('auth')->group(function () {
     Route::get('/dashboard', function () {
         return view('pages.dashboard');
     })->name('dashboard');
+
+    Route::get('/centres', function () {
+        return view('pages.centres');
+    })->name('centres');
+
+    Route::get('/logs', function () {
+        return view('pages.logs');
+    })->name('logs');
+
+    Route::get('/under-construction', function () {
+        return view('pages.under_construction');
+    })->name('under-construction');
 });
 
 
