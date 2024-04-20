@@ -22,8 +22,20 @@ Route::middleware('auth')->group(function () {
         return view('pages.dashboard');
     })->name('dashboard');
 
+    Route::get('/administration', function () {
+        return view('pages.under_construction');
+    })->name('administration');
+
     Route::get('/centres', function () {
         return view('pages.centres');
+    })->name('centres');
+
+    Route::get('/vets', function () {
+        return view('pages.under_construction');
+    })->name('vets');
+
+    Route::get('/appointments', function () {
+        return view('pages.under_construction');
     })->name('centres');
 
     Route::get('/logs', function () {
